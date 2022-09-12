@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Projeto_Xadrez.Boardx
+﻿namespace Projeto_Xadrez.Boardx
 {
     class Board
     {
