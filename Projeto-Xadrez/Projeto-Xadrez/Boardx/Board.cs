@@ -1,4 +1,6 @@
-﻿namespace Projeto_Xadrez.Boardx
+﻿using Projeto_Xadrez.Boardx.Exceptions;
+using System;
+namespace Projeto_Xadrez.Boardx
 {
     class Board
     {
@@ -41,7 +43,7 @@
 
         public bool PositionIsValid(Position position)
         {
-            if (position.Line < 0 || position.Column < 0 || position.Line > Lines || position.Column > Columns)
+            if (position.Line < 0 || position.Column < 0 || position.Line >= Lines || position.Column >= Columns)
             {
                 return false;
             }
