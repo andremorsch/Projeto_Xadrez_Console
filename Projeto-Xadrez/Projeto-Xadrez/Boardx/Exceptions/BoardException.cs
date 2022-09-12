@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Projeto_Xadrez.Boardx
+namespace Projeto_Xadrez.Boardx.Exceptions
 {
     internal class BoardException : Exception
     {
