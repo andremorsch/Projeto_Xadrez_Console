@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Projeto_Xadrez.Board
+namespace Projeto_Xadrez.Boardx
 {
     class Position
     {
