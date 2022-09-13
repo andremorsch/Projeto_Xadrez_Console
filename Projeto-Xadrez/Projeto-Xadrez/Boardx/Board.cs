@@ -41,6 +41,18 @@ namespace Projeto_Xadrez.Boardx
             piece.Position = position;
         }
 
+        public Piece RemovePiece(Position position)
+        {
+            if (ViewPiece(position) == null)
+            {
+                return null;
+            }
+            Piece auxPiece = ViewPiece(position);
+            auxPiece.Position = null;
+            Pieces[position.Line, position.Column] = null;
+            return auxPiece;
+        }
+
         public bool PositionIsValid(Position position)
         {
             if (position.Line < 0 || position.Column < 0 || position.Line >= Lines || position.Column >= Columns)
