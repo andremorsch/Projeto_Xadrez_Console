@@ -1,6 +1,6 @@
 ﻿namespace Projeto_Xadrez.Boardx
 {
-    class Piece
+    abstract class Piece
     {
         public Position Position { get; set; }
         public Color Color { get; protected set; }
@@ -19,5 +19,7 @@
         {
             QuantityMoves++;
         }
+
+        public abstract bool[,] PossibleMovements();
     }
 }
