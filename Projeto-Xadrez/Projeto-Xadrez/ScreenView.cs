@@ -1,5 +1,6 @@
 ﻿using System;
 using Projeto_Xadrez.Boardx;
+using Projeto_Xadrez.Chess;
 
 namespace Projeto_Xadrez
 {
@@ -25,6 +26,14 @@ namespace Projeto_Xadrez
                 Console.WriteLine();
             }
             Console.WriteLine("  A B C D E F G H");
+        }
+
+        public static ChessPosition ReadChessPosition()
+        {
+            string read = Console.ReadLine();
+            char column = read[0];
+            int line = int.Parse(read[1] + "");
+            return new ChessPosition(column, line);
         }
 
         public static void PrintPiece(Piece piece)
