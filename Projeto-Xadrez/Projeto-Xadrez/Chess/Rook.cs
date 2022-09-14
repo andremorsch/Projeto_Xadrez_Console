@@ -2,17 +2,17 @@
 
 namespace Projeto_Xadrez.Chess
 {
-    class Tower : Piece
+    class Rook : Piece
     {
 
 
-        public Tower(Board board, Color color) : base(color, board)
+        public Rook(Board board, Color color) : base(color, board)
         {
         }
 
         public override string ToString()
         {
-            return "T";
+            return "R";
         }
 
         private bool CanMove(Position position)
