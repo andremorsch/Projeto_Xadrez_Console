@@ -52,6 +52,18 @@ namespace Projeto_Xadrez.Chess
             }
         }
 
+        private void ChangePlayer()
+        {
+            if (CurrentPlayer == Color.White)
+            {
+                CurrentPlayer = Color.Black;
+            }
+            else
+            {
+                CurrentPlayer = Color.White;
+            }
+        }
+
         private void PutPieces()
         {
             Board.PutPiece(new Tower(Board, Color.White), new ChessPosition('c', 1).ToPosition());
