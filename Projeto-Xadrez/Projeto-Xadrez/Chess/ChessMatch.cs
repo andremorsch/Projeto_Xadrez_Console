@@ -52,6 +52,14 @@ namespace Projeto_Xadrez.Chess
             }
         }
 
+        public void ValidateTargetPosition(Position origin, Position target)
+        {
+            if (!Board.ViewPiece(origin).CanMoveTo(target))
+            {
+                throw new BoardException("Invalid target position");
+            }
+        }
+
         private void ChangePlayer()
         {
             if (CurrentPlayer == Color.White)
