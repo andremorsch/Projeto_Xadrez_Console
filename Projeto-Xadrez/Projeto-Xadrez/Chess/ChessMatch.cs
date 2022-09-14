@@ -33,6 +33,25 @@ namespace Projeto_Xadrez.Chess
             Turn++;
             ChangePlayer();
         }
+
+        public void ValidadeOriginPosition(Position position)
+        {
+            if (Board.ViewPiece(position) == null)
+            {
+                throw new BoardException("There is no part in the chosen source position");
+            }
+            
+            if (CurrentPlayer != Board.ViewPiece(position).Color)
+            {
+                throw new BoardException("The chosen piece is not yours");
+            }
+
+            if (!Board.ViewPiece(position).HasPossibleMovements())
+            {
+                throw new BoardException("There are no possible movements for the chosen piece");
+            }
+        }
+
         private void PutPieces()
         {
             Board.PutPiece(new Tower(Board, Color.White), new ChessPosition('c', 1).ToPosition());
