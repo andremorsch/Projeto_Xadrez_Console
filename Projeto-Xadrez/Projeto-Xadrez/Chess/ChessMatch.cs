@@ -27,6 +27,12 @@ namespace Projeto_Xadrez.Chess
             Board.PutPiece(piece, target);
         }
 
+        public void MakeTurn(Position origin, Position target)
+        {
+            MakeMovement(origin, target);
+            Turn++;
+            ChangePlayer();
+        }
         private void PutPieces()
         {
             Board.PutPiece(new Tower(Board, Color.White), new ChessPosition('c', 1).ToPosition());
