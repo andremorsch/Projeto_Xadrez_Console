@@ -1,13 +1,13 @@
 ﻿using Projeto_Xadrez.Boardx;
-using System;
+using Projeto_Xadrez.Boardx.Exceptions;
 
 namespace Projeto_Xadrez.Chess
 {
     class ChessMatch
     {
         public Board Board { get; private set; }
-        private int Turn;
-        private Color CurrentPlayer;
+        public int Turn { get; private set; }
+        public  Color CurrentPlayer { get; private set; }
         public bool Finished { get; private set; }
 
         public ChessMatch()
