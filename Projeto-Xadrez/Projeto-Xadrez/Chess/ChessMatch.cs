@@ -72,6 +72,19 @@ namespace Projeto_Xadrez.Chess
             }
         }
 
+        public HashSet<Piece> CapturedPiecesByColor(Color color)
+        {
+            HashSet<Piece> response = new HashSet<Piece>();
+            foreach (Piece piece in CapturedPieces)
+            {
+                if (piece.Color == color)
+                {
+                    response.Add(piece);
+                }
+            }
+            return response;
+        }
+
         private void PutPieces()
         {
             Board.PutPiece(new Rook(Board, Color.White), new ChessPosition('c', 1).ToPosition());
