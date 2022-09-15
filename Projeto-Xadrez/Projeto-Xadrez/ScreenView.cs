@@ -6,6 +6,22 @@ namespace Projeto_Xadrez
 {
     class ScreenView
     {
+        public static void PrintCapturedPieces(ChessMatch match)
+        {
+            ConsoleColor originalForeground = Console.ForegroundColor;
+            ConsoleColor changedForeground = ConsoleColor.DarkRed;
+
+            Console.WriteLine("Captured pieces:");
+            Console.Write("\nWhite pieces: ");
+            PrintGroupPieces(match.CapturedPiecesByColor(Color.White));
+
+
+            Console.Write("\nBlack Pieces: ");
+            Console.ForegroundColor = changedForeground;
+            PrintGroupPieces(match.CapturedPiecesByColor(Color.Black));
+            Console.ForegroundColor = originalForeground;
+        }
+
         public static void PrintGroupPieces(HashSet<Piece> pieces)
         {
             Console.Write("[ ");
