@@ -85,6 +85,12 @@ namespace Projeto_Xadrez.Chess
             return response;
         }
 
+        public void PutNewPiece(char column, int line, Piece piece)
+        {
+            Board.PutPiece(piece, new ChessPosition(column, line).ToPosition());
+            TotalPieces.Add(piece);
+        }
+
         private void PutPieces()
         {
             Board.PutPiece(new Rook(Board, Color.White), new ChessPosition('c', 1).ToPosition());
