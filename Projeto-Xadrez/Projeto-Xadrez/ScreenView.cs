@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Projeto_Xadrez.Boardx;
 using Projeto_Xadrez.Chess;
 
@@ -6,6 +7,18 @@ namespace Projeto_Xadrez
 {
     class ScreenView
     {
+        public static void PrintMatch(ChessMatch match)
+        {
+            ScreenView.PrintBoard(match.Board);
+
+            Console.WriteLine();
+            PrintCapturedPieces(match);
+            Console.WriteLine();
+
+            Console.WriteLine($"\nTurn: {match.Turn}");
+            Console.WriteLine($"Waiting player {match.CurrentPlayer}");
+        }
+
         public static void PrintCapturedPieces(ChessMatch match)
         {
             ConsoleColor originalForeground = Console.ForegroundColor;
