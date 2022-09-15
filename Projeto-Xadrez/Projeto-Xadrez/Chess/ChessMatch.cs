@@ -1,4 +1,5 @@
-﻿using Projeto_Xadrez.Boardx;
+﻿using System.Collections.Generic;
+using Projeto_Xadrez.Boardx;
 using Projeto_Xadrez.Boardx.Exceptions;
 
 namespace Projeto_Xadrez.Chess
@@ -9,6 +10,8 @@ namespace Projeto_Xadrez.Chess
         public int Turn { get; private set; }
         public  Color CurrentPlayer { get; private set; }
         public bool Finished { get; private set; }
+        private HashSet<Piece> TotalPieces;
+        private HashSet<Piece> CapturedPieces;
 
         public ChessMatch()
         {
@@ -16,6 +19,8 @@ namespace Projeto_Xadrez.Chess
             Turn = 1;
             CurrentPlayer = Color.White;
             Finished = false;
+            TotalPieces = new HashSet<Piece>();
+            CapturedPieces = new HashSet<Piece>();
             PutPieces();
         }
 
@@ -25,6 +30,10 @@ namespace Projeto_Xadrez.Chess
             piece.IncreaseQuantityMovements();
             Piece capturedPiece = Board.RemovePiece(target);
             Board.PutPiece(piece, target);
+            if (capturedPiece != null)
+            {
+                CapturedPieces.Add(capturedPiece);
+            }
         }
 
         public void MakeTurn(Position origin, Position target)
@@ -107,19 +116,19 @@ namespace Projeto_Xadrez.Chess
 
         private void PutPieces()
         {
-            Board.PutPiece(new Rook(Board, Color.White), new ChessPosition('c', 1).ToPosition());
-            Board.PutPiece(new Rook(Board, Color.White), new ChessPosition('c', 2).ToPosition());
-            Board.PutPiece(new Rook(Board, Color.White), new ChessPosition('d', 2).ToPosition());
-            Board.PutPiece(new Rook(Board, Color.White), new ChessPosition('e', 2).ToPosition());
-            Board.PutPiece(new Rook(Board, Color.White), new ChessPosition('e', 1).ToPosition());
-            Board.PutPiece(new King(Board, Color.White), new ChessPosition('d', 1).ToPosition());
+            PutNewPiece('c', 1, new Rook(Board, Color.White));
+            PutNewPiece('c', 2, new Rook(Board, Color.White));
+            PutNewPiece('d', 2, new Rook(Board, Color.White));
+            PutNewPiece('e', 2, new Rook(Board, Color.White));
+            PutNewPiece('e', 1, new Rook(Board, Color.White));
+            PutNewPiece('d', 1, new King(Board, Color.White));
 
-            Board.PutPiece(new Rook(Board, Color.Black), new ChessPosition('c', 7).ToPosition());
-            Board.PutPiece(new Rook(Board, Color.Black), new ChessPosition('c', 8).ToPosition());
-            Board.PutPiece(new Rook(Board, Color.Black), new ChessPosition('d', 7).ToPosition());
-            Board.PutPiece(new Rook(Board, Color.Black), new ChessPosition('e', 7).ToPosition());
-            Board.PutPiece(new Rook(Board, Color.Black), new ChessPosition('e', 8).ToPosition());
-            Board.PutPiece(new King(Board, Color.Black), new ChessPosition('d', 8).ToPosition());
+            PutNewPiece('c', 7, new Rook(Board, Color.Black));
+            PutNewPiece('c', 8, new Rook(Board, Color.Black));
+            PutNewPiece('d', 7, new Rook(Board, Color.Black));
+            PutNewPiece('e', 7, new Rook(Board, Color.Black));
+            PutNewPiece('e', 8, new Rook(Board, Color.Black));
+            PutNewPiece('d', 8, new King(Board, Color.Black));
         }
     }
 }
