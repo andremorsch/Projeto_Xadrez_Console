@@ -6,6 +6,16 @@ namespace Projeto_Xadrez
 {
     class ScreenView
     {
+        public static void PrintGroupPieces(HashSet<Piece> pieces)
+        {
+            Console.Write("[ ");
+            foreach (Piece piece in pieces)
+            {
+                Console.Write($"{piece} ");
+            }
+            Console.Write("]");
+        }
+
         public static void PrintBoard(Board board)
         {
             for (int i = 0; i < board.Lines; i++)
