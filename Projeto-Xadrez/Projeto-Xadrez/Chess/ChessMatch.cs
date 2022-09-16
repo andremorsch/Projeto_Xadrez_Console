@@ -131,6 +131,28 @@ namespace Projeto_Xadrez.Chess
             }
             return null;
         }
+
+        public bool IsInCheck(Color color)
+        {
+            Piece king = KingByColor(color);
+
+            if (king == null)
+            {
+                throw new BoardException($"Don't have a {color} King ");
+            }
+
+            foreach (Piece piece in InGamePiecesByColor(AdversaryColor(color)))
+            {
+                bool[,] aux = piece.PossibleMovements();
+                if (aux[king.Position.Line, king.Position.Column])
+                {
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
         public void PutNewPiece(char column, int line, Piece piece)
         {
             Board.PutPiece(piece, new ChessPosition(column, line).ToPosition());
