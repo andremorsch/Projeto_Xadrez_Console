@@ -119,6 +119,18 @@ namespace Projeto_Xadrez.Chess
                 return Color.White;
             }
         }
+
+        private Piece KingByColor(Color color)
+        {
+            foreach (Piece piece in InGamePiecesByColor(color))
+            {
+                if (piece is King)
+                {
+                    return piece;
+                }
+            }
+            return null;
+        }
         public void PutNewPiece(char column, int line, Piece piece)
         {
             Board.PutPiece(piece, new ChessPosition(column, line).ToPosition());
