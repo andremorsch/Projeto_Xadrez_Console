@@ -24,7 +24,7 @@ namespace Projeto_Xadrez.Chess
             PutPieces();
         }
 
-        public void MakeMovement(Position origin, Position target)
+        public Piece MakeMovement(Position origin, Position target)
         {
             Piece piece = Board.RemovePiece(origin);
             piece.IncreaseQuantityMovements();
