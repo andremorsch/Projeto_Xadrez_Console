@@ -108,6 +108,17 @@ namespace Projeto_Xadrez.Chess
             return response;
         }
 
+        private Color AdversaryColor(Color color)
+        {
+            if (color == Color.White)
+            {
+                return Color.Black;
+            }
+            else
+            {
+                return Color.White;
+            }
+        }
         public void PutNewPiece(char column, int line, Piece piece)
         {
             Board.PutPiece(piece, new ChessPosition(column, line).ToPosition());
