@@ -34,6 +34,8 @@ namespace Projeto_Xadrez.Chess
             {
                 CapturedPieces.Add(capturedPiece);
             }
+
+            return capturedPiece;
         }
 
         public void MakeTurn(Position origin, Position target)
