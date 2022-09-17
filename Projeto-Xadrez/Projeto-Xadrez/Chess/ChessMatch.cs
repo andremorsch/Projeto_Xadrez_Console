@@ -40,6 +40,20 @@ namespace Projeto_Xadrez.Chess
             return capturedPiece;
         }
 
+        public void UndoMovement(Position origin, Position target, Piece capturedPiece)
+        {
+            Piece piece = Board.RemovePiece(target);
+            piece.DecrementQuantityMovements();
+
+            if (capturedPiece != null)
+            {
+                Board.PutPiece(capturedPiece, target);
+                CapturedPieces.Remove(capturedPiece);
+            }
+
+            Board.PutPiece(piece, origin);
+        }
+
         public void MakeTurn(Position origin, Position target)
         {
             MakeMovement(origin, target);
