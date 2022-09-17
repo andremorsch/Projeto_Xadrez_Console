@@ -56,7 +56,23 @@ namespace Projeto_Xadrez.Chess
 
         public void MakeTurn(Position origin, Position target)
         {
-            MakeMovement(origin, target);
+            Piece capturedPiece = MakeMovement(origin, target);
+
+            if (IsInCheck(CurrentPlayer))
+            {
+                UndoMovement(origin, target, capturedPiece);
+                throw new BoardException("You can't put yourself in check");
+            }
+
+            if (IsInCheck(AdversaryColor(CurrentPlayer)))
+            {
+                Check = true;
+            }
+            else
+            {
+                Check = false;
+            }
+
             Turn++;
             ChangePlayer();
         }
