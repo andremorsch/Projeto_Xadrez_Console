@@ -22,6 +22,7 @@ namespace Projeto_Xadrez.Chess
             Finished = false;
             TotalPieces = new HashSet<Piece>();
             CapturedPieces = new HashSet<Piece>();
+            Check = false;
             PutPieces();
         }
 
