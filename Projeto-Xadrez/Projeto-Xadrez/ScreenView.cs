@@ -17,6 +17,11 @@ namespace Projeto_Xadrez
 
             Console.WriteLine($"\nTurn: {match.Turn}");
             Console.WriteLine($"Waiting player {match.CurrentPlayer}");
+
+            if (match.Check)
+            {
+                Console.WriteLine("\nCHECK!");
+            }
         }
 
         public static void PrintCapturedPieces(ChessMatch match)
