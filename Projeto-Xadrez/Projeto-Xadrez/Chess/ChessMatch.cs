@@ -12,6 +12,7 @@ namespace Projeto_Xadrez.Chess
         public bool Finished { get; private set; }
         private HashSet<Piece> TotalPieces;
         private HashSet<Piece> CapturedPieces;
+        public bool Check { get; private set; }
 
         public ChessMatch()
         {
