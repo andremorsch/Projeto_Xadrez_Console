@@ -75,6 +75,15 @@ namespace Projeto_Xadrez.Chess
 
             Turn++;
             ChangePlayer();
+            if (IsCheckMate(AdversaryColor(CurrentPlayer)))
+            {
+                Finished = true;
+            }
+            else
+            {
+                Turn++;
+                ChangePlayer();
+            }
         }
 
         public void ValidadeOriginPosition(Position position)
