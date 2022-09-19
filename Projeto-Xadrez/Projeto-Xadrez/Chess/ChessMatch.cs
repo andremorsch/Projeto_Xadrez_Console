@@ -196,18 +196,18 @@ namespace Projeto_Xadrez.Chess
         private void PutPieces()
         {
             PutNewPiece('c', 1, new Rook(Board, Color.White));
-            PutNewPiece('c', 2, new Rook(Board, Color.White));
-            PutNewPiece('d', 2, new Rook(Board, Color.White));
-            PutNewPiece('e', 2, new Rook(Board, Color.White));
-            PutNewPiece('e', 1, new Rook(Board, Color.White));
+            PutNewPiece('h', 7, new Rook(Board, Color.White));
+            //PutNewPiece('d', 2, new Rook(Board, Color.White));
+            //PutNewPiece('e', 2, new Rook(Board, Color.White));
+            //PutNewPiece('e', 1, new Rook(Board, Color.White));
             PutNewPiece('d', 1, new King(Board, Color.White));
 
-            PutNewPiece('c', 7, new Rook(Board, Color.Black));
-            PutNewPiece('c', 8, new Rook(Board, Color.Black));
-            PutNewPiece('d', 7, new Rook(Board, Color.Black));
-            PutNewPiece('e', 7, new Rook(Board, Color.Black));
-            PutNewPiece('e', 8, new Rook(Board, Color.Black));
-            PutNewPiece('d', 8, new King(Board, Color.Black));
+            PutNewPiece('b', 8, new Rook(Board, Color.Black));
+            //PutNewPiece('c', 8, new Rook(Board, Color.Black));
+            //PutNewPiece('d', 7, new Rook(Board, Color.Black));
+            //PutNewPiece('e', 7, new Rook(Board, Color.Black));
+            //PutNewPiece('e', 8, new Rook(Board, Color.Black));
+            PutNewPiece('a', 8, new King(Board, Color.Black));
         }
     }
 }
