@@ -73,8 +73,6 @@ namespace Projeto_Xadrez.Chess
                 Check = false;
             }
 
-            Turn++;
-            ChangePlayer();
             if (IsCheckMate(AdversaryColor(CurrentPlayer)))
             {
                 Finished = true;
