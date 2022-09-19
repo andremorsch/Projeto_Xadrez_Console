@@ -16,11 +16,19 @@ namespace Projeto_Xadrez
             Console.WriteLine();
 
             Console.WriteLine($"\nTurn: {match.Turn}");
-            Console.WriteLine($"Waiting player {match.CurrentPlayer}");
-
-            if (match.Check)
+            
+            if (!match.Finished)
             {
-                Console.WriteLine("\nCHECK!");
+                Console.WriteLine($"Waiting player {match.CurrentPlayer}");
+                if (match.Check)
+                {
+                    Console.WriteLine("\nCHECK!");
+                }
+            }
+            else
+            {
+                Console.WriteLine("CHECKMATE!");
+                Console.WriteLine($"Winner: {match.CurrentPlayer}");
             }
         }
 
