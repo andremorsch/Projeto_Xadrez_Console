@@ -187,6 +187,39 @@ namespace Projeto_Xadrez.Chess
             return false;
         }
 
+        public bool IsCheckMate(Color color)
+        {
+            if (!IsInCheck(color))
+            {
+                return false;
+            }
+
+            foreach (Piece piece in InGamePiecesByColor(color))
+            {
+                bool[,] moves = piece.PossibleMovements();
+                for (int i = 0; i < Board.Lines; i++)
+                {
+                    for (int j = 0; j < Board.Columns; j++)
+                    {
+                        if (moves[i, j])
+                        {
+                            Position origin = piece.Position;
+                            Position target = new Position(i, j);
+                            Piece capturedPiece = MakeMovement(origin, target);
+                            bool testCheck = IsInCheck(color);
+                            UndoMovement(origin, target, capturedPiece);
+
+                            if (!testCheck)
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
+        }
+
         public void PutNewPiece(char column, int line, Piece piece)
         {
             Board.PutPiece(piece, new ChessPosition(column, line).ToPosition());
