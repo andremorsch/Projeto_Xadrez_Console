@@ -4,8 +4,6 @@ namespace Projeto_Xadrez.Chess
 {
     class Rook : Piece
     {
-
-
         public Rook(Board board, Color color) : base(color, board)
         {
         }
