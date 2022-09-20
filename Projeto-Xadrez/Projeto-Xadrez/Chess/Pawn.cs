@@ -25,3 +25,8 @@ namespace Projeto_Xadrez.Chess
             return piece != null && piece.Color != Color;
         }
 
+        private bool IsEmptySquare(Position position)
+        {
+            return Board.ViewPiece(position) == null;
+        }
+
