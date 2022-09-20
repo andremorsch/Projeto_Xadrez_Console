@@ -22,6 +22,15 @@ namespace Projeto_Xadrez.Chess
             return piece == null || piece.Color != Color;
         }
 
+        private bool TestRookForCastle(Position position)
+        {
+            Piece rook = Board.ViewPiece(position);
+            return rook != null
+                && rook is Rook
+                && rook.Color == Color
+                && rook.QuantityMoves == 0;
+        }
+
         public override bool[,] PossibleMovements()
         {
             bool[,] moves = new bool[Board.Lines, Board.Columns];
