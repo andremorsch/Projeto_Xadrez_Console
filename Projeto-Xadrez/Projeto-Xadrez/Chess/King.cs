@@ -93,6 +93,42 @@ namespace Projeto_Xadrez.Chess
                 moves[position.Line, position.Column] = true;
             }
 
+            // Special Moves ->
+
+            if (QuantityMoves == 0 && !Match.Check)
+            {
+                // CastleKingside
+                Position positionRook1 = new Position(Position.Line, Position.Column + 3);
+
+                if (TestRookForCastle(positionRook1))
+                {
+                    Position pos1 = new Position(Position.Line, Position.Column + 1);
+                    Position pos2 = new Position(Position.Line, Position.Column + 2);
+
+                    if (Board.ViewPiece(pos1) == null && Board.ViewPiece(pos2) == null)
+                    {
+                        moves[Position.Line, Position.Column + 2] = true;
+                    }
+                }
+
+                // CastleQueenside
+                Position positionRook2 = new Position(Position.Line, Position.Column - 4);
+
+                if (TestRookForCastle(positionRook2))
+                {
+                    Position pos1 = new Position(Position.Line, Position.Column - 1);
+                    Position pos2 = new Position(Position.Line, Position.Column - 2);
+                    Position pos3 = new Position(Position.Line, Position.Column - 3);
+
+                    if (Board.ViewPiece(pos1) == null
+                        && Board.ViewPiece(pos2) == null
+                        && Board.ViewPiece(pos3) == null)
+                    {
+                        moves[Position.Line, Position.Column - 2] = true;
+                    }
+                }
+            }
+
             return moves;
         }
     }
