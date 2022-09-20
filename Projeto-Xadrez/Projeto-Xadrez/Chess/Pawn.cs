@@ -19,3 +19,9 @@ namespace Projeto_Xadrez.Chess
             return piece == null || piece.Color != Color;
         }
 
+        public bool HasOpponent(Position position)
+        {
+            Piece piece = Board.ViewPiece(position);
+            return piece != null && piece.Color != Color;
+        }
+
