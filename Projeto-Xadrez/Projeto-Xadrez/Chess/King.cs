@@ -4,8 +4,11 @@ namespace Projeto_Xadrez.Chess
 {
     class King : Piece
     {
-        public King(Board board, Color color) : base(color, board)
+        private ChessMatch Match;
+
+        public King(Board board, Color color, ChessMatch match) : base(color, board)
         {
+            Match = match;
         }
 
         public override string ToString()
