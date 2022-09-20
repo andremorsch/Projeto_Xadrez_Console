@@ -19,3 +19,61 @@ namespace Projeto_Xadrez.Chess
             return piece == null || piece.Color != Color;
         }
 
+        public override bool[,] PossibleMovements()
+        {
+            bool[,] moves = new bool[Board.Lines, Board.Columns];
+
+            Position position = new Position(0, 0);
+
+            position.SetValues(Position.Line - 1, Position.Column - 2);
+            if (Board.PositionIsValid(position) && CanMove(position))
+            {
+                moves[position.Line, position.Column] = true;
+            }
+
+            position.SetValues(Position.Line - 2, Position.Column - 1);
+            if (Board.PositionIsValid(position) && CanMove(position))
+            {
+                moves[position.Line, position.Column] = true;
+            }
+
+            position.SetValues(Position.Line - 2, Position.Column + 1);
+            if (Board.PositionIsValid(position) && CanMove(position))
+            {
+                moves[position.Line, position.Column] = true;
+            }
+
+            position.SetValues(Position.Line - 1, Position.Column + 2);
+            if (Board.PositionIsValid(position) && CanMove(position))
+            {
+                moves[position.Line, position.Column] = true;
+            }
+
+            position.SetValues(Position.Line + 1, Position.Column + 2);
+            if (Board.PositionIsValid(position) && CanMove(position))
+            {
+                moves[position.Line, position.Column] = true;
+            }
+
+            position.SetValues(Position.Line + 2, Position.Column + 1);
+            if (Board.PositionIsValid(position) && CanMove(position))
+            {
+                moves[position.Line, position.Column] = true;
+            }
+
+            position.SetValues(Position.Line + 2, Position.Column - 1);
+            if (Board.PositionIsValid(position) && CanMove(position))
+            {
+                moves[position.Line, position.Column] = true;
+            }
+
+            position.SetValues(Position.Line + 1, Position.Column - 2);
+            if (Board.PositionIsValid(position) && CanMove(position))
+            {
+                moves[position.Line, position.Column] = true;
+            }
+
+            return moves;
+        }
+    }
+}
