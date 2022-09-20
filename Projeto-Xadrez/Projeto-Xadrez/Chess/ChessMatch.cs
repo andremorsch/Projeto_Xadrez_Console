@@ -37,6 +37,28 @@ namespace Projeto_Xadrez.Chess
                 CapturedPieces.Add(capturedPiece);
             }
 
+            // Special Move CastleKingside
+            if (piece is King
+                && target.Column == origin.Column + 2)
+            {
+                Position originRook = new Position(origin.Line, origin.Column + 3);
+                Position targetRook = new Position(origin.Line, origin.Column + 1);
+                Piece rook = Board.RemovePiece(originRook);
+                rook.IncreaseQuantityMovements();
+                Board.PutPiece(rook, targetRook);
+            }
+
+            // Special Move CastleQueenside
+            if (piece is King
+                && target.Column == origin.Column - 2)
+            {
+                Position originRook = new Position(origin.Line, origin.Column - 4);
+                Position targetRook = new Position(origin.Line, origin.Column - 1);
+                Piece rook = Board.RemovePiece(originRook);
+                rook.IncreaseQuantityMovements();
+                Board.PutPiece(rook, targetRook);
+            }
+
             return capturedPiece;
         }
 
