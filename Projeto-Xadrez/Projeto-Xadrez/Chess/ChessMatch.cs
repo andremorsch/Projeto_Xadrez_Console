@@ -149,6 +149,21 @@ namespace Projeto_Xadrez.Chess
                 Turn++;
                 ChangePlayer();
             }
+
+            Piece piece = Board.ViewPiece(target);
+
+            // SpecialMove En Passant
+            if (piece is Pawn
+                && target.Line == origin.Line - 2
+                || target.Line == origin.Line + 2)
+            {
+                VulnerableEnPassant = piece;
+            }
+            else
+            {
+                VulnerableEnPassant = null;
+            }
+
         }
 
         public void ValidadeOriginPosition(Position position)
