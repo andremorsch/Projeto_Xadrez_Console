@@ -13,6 +13,7 @@ namespace Projeto_Xadrez.Chess
         private HashSet<Piece> TotalPieces;
         private HashSet<Piece> CapturedPieces;
         public bool Check { get; private set; }
+        public Piece VulnerableEnPassant { get; private set; }
 
         public ChessMatch()
         {
@@ -23,6 +24,7 @@ namespace Projeto_Xadrez.Chess
             TotalPieces = new HashSet<Piece>();
             CapturedPieces = new HashSet<Piece>();
             Check = false;
+            VulnerableEnPassant = null;
             PutPieces();
         }
 
