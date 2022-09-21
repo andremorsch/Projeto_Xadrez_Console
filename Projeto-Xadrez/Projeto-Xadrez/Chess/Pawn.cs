@@ -109,6 +109,28 @@ namespace Projeto_Xadrez.Chess
                 {
                     moves[position.Line, position.Column] = true;
                 }
+
+                //Special Move En Passant
+                if (Position.Line == 4)
+                {
+                    Position left = new Position(Position.Line, Position.Column - 1);
+
+                    if (Board.PositionIsValid(left)
+                        && HasOpponent(left)
+                        && Board.ViewPiece(left) == Match.VulnerableEnPassant)
+                    {
+                        moves[left.Line + 1, left.Column] = true;
+                    }
+
+                    Position right = new Position(Position.Line, Position.Column + 1);
+
+                    if (Board.PositionIsValid(right)
+                        && HasOpponent(right)
+                        && Board.ViewPiece(right) == Match.VulnerableEnPassant)
+                    {
+                        moves[right.Line + 1, right.Column] = true;
+                    }
+                }
             }
 
             return moves;
