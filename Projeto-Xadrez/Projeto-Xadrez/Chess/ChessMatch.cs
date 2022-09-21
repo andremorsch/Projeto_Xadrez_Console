@@ -306,14 +306,14 @@ namespace Projeto_Xadrez.Chess
             PutNewPiece('f', 8, new Bishop(Board, Color.Black));
             PutNewPiece('g', 8, new Knight(Board, Color.Black));
             PutNewPiece('h', 8, new Rook(Board, Color.Black));
-            PutNewPiece('a', 7, new Pawn(Board, Color.Black));
-            PutNewPiece('b', 7, new Pawn(Board, Color.Black));
-            PutNewPiece('c', 7, new Pawn(Board, Color.Black));
-            PutNewPiece('d', 7, new Pawn(Board, Color.Black));
-            PutNewPiece('e', 7, new Pawn(Board, Color.Black));
-            PutNewPiece('f', 7, new Pawn(Board, Color.Black));
-            PutNewPiece('g', 7, new Pawn(Board, Color.Black));
-            PutNewPiece('h', 7, new Pawn(Board, Color.Black));
+            PutNewPiece('a', 7, new Pawn(Board, Color.Black, this));
+            PutNewPiece('b', 7, new Pawn(Board, Color.Black, this));
+            PutNewPiece('c', 7, new Pawn(Board, Color.Black, this));
+            PutNewPiece('d', 7, new Pawn(Board, Color.Black, this));
+            PutNewPiece('e', 7, new Pawn(Board, Color.Black, this));
+            PutNewPiece('f', 7, new Pawn(Board, Color.Black, this));
+            PutNewPiece('g', 7, new Pawn(Board, Color.Black, this));
+            PutNewPiece('h', 7, new Pawn(Board, Color.Black, this));
         }
     }
 }
