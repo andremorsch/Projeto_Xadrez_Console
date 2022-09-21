@@ -4,8 +4,11 @@ namespace Projeto_Xadrez.Chess
 {
     class Pawn : Piece
     {
-        public Pawn(Board board, Color color) : base(color, board)
+        private ChessMatch Match;
+
+        public Pawn(Board board, Color color, ChessMatch match) : base(color, board)
         {
+            Match = match;
         }
 
         public override string ToString()
@@ -54,6 +57,31 @@ namespace Projeto_Xadrez.Chess
                 if (Board.PositionIsValid(position) && HasOpponent(position))
                 {
                     moves[position.Line, position.Column] = true;
+                }
+
+                //Special Move En Passant
+                if (Position.Line == 3)
+                {
+                    Position left = new Position(Position.Line, Position.Column - 1);
+                    Piece opo = Board.ViewPiece(left);
+                    bool ooo = HasOpponent(left);
+                    bool asdsa = Board.PositionIsValid(left);
+
+                    if (Board.PositionIsValid(left)
+                        && HasOpponent(left)
+                        && Board.ViewPiece(left) == Match.VulnerableEnPassant)
+                    {
+                        moves[left.Line - 1, left.Column] = true;
+                    }
+
+                    Position right = new Position(Position.Line, Position.Column + 1);
+
+                    if (Board.PositionIsValid(right)
+                        && HasOpponent(right)
+                        && Board.ViewPiece(right) == Match.VulnerableEnPassant)
+                    {
+                        moves[right.Line - 1, right.Column] = true;
+                    }
                 }
             }
             else
