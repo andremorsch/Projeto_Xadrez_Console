@@ -61,6 +61,27 @@ namespace Projeto_Xadrez.Chess
                 Board.PutPiece(rook, targetRook);
             }
 
+            // Special Move En Passant
+
+            if (piece is Pawn)
+            {
+                if (origin.Column != target.Column
+                && capturedPiece == null)
+                {
+                    Position capturedPawn;
+                    if (piece.Color == Color.White)
+                    {
+                        capturedPawn = new Position(target.Line + 1, target.Column);
+                    }
+                    else
+                    {
+                        capturedPawn = new Position(target.Line - 1, target.Column);
+                    }
+                    capturedPiece = Board.RemovePiece(capturedPawn);
+                    CapturedPieces.Add(capturedPiece);
+                }
+            }
+
             return capturedPiece;
         }
 
