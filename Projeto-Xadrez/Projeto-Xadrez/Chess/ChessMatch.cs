@@ -142,12 +142,28 @@ namespace Projeto_Xadrez.Chess
         public void MakeTurn(Position origin, Position target)
         {
             Piece capturedPiece = MakeMovement(origin, target);
+            Piece piece = Board.ViewPiece(target);
 
             if (IsInCheck(CurrentPlayer))
             {
                 UndoMovement(origin, target, capturedPiece);
                 throw new BoardException("You can't put yourself in check");
             }
+
+            // Special Move - Promotion
+            if (piece is Pawn)
+            {
+                if ((piece.Color == Color.White && target.Line == 0)
+                    || (piece.Color == Color.Black && target.Line == 7))
+                {
+                    piece = Board.RemovePiece(target);
+                    TotalPieces.Remove(piece);
+                    Piece queen = new Queen(Board, piece.Color);
+                    Board.PutPiece(queen, target);
+                    TotalPieces.Add(queen);
+                }
+            }
+
 
             if (IsInCheck(AdversaryColor(CurrentPlayer)))
             {
@@ -168,8 +184,6 @@ namespace Projeto_Xadrez.Chess
                 ChangePlayer();
             }
 
-            Piece piece = Board.ViewPiece(target);
-
             // SpecialMove En Passant
             if (piece is Pawn
                 && target.Line == origin.Line - 2
@@ -181,7 +195,6 @@ namespace Projeto_Xadrez.Chess
             {
                 VulnerableEnPassant = null;
             }
-
         }
 
         public void ValidadeOriginPosition(Position position)
