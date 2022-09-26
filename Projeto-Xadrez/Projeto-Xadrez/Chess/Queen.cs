@@ -34,7 +34,7 @@ namespace Projeto_Xadrez.Chess
                 {
                     break;
                 }
-                position.Line -= 1;
+                position.SetValues(Position.Line - 1, Position.Column);
             }
 
             // down
@@ -46,7 +46,7 @@ namespace Projeto_Xadrez.Chess
                 {
                     break;
                 }
-                position.Line += 1;
+                position.SetValues(Position.Line + 1, Position.Column);
             }
 
             // right
@@ -58,7 +58,7 @@ namespace Projeto_Xadrez.Chess
                 {
                     break;
                 }
-                position.Column += 1;
+                position.SetValues(Position.Line, Position.Column + 1);
             }
 
             // left
@@ -70,7 +70,7 @@ namespace Projeto_Xadrez.Chess
                 {
                     break;
                 }
-                position.Column -= 1;
+                position.SetValues(Position.Line, Position.Column - 1);
             }
 
             // NW
@@ -109,7 +109,7 @@ namespace Projeto_Xadrez.Chess
                     break;
                 }
 
-                position.SetValues(position.Line - 1, position.Column - 1);
+                position.SetValues(position.Line + 1, position.Column + 1);
             }
 
             // SW
