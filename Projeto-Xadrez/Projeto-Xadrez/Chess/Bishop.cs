@@ -61,7 +61,7 @@ namespace Projeto_Xadrez.Chess
                     break;
                 }
 
-                position.SetValues(position.Line - 1, position.Column - 1);
+                position.SetValues(position.Line + 1, position.Column + 1);
             }
 
             // SW
